@@ -6,8 +6,6 @@ The **Principal Component Analysis** is a Python program that performs dimension
 To use the program, first, download the scripts and the database and put them in the same folder. Then, execute the python script anime_synopsis_similarity_checker.py and follow the program instructions.
     
     'python principal_component_analysis.py'
-    
-Once the program is running....
 
 ## Credits and Citations 
 This work uses the [Starbucks Nutrition Facts](https://www.kaggle.com/datasets/utkarshx27/starbucks-nutrition) dataset, made available by Utkarsh Singh for the Advancement of Science and Art on Kaggle. Special thanks to Utkarsh Singh and the dataset creators for making this data available.
