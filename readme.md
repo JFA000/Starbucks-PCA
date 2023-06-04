@@ -3,7 +3,7 @@
 The **Principal Component Analysis** is a Python program that performs dimensionality reduction on Starbucks nutrition data using PCA and visualizes the results in a 3D scatter plot. The code calculates the principal components, determines colors based on the axes values. It provides a concise representation of the nutritional characteristics of Starbucks products.
 
 ## Usage
-To use the program, first, download the scripts and the database and put them in the same folder. Then, execute the python script
+To use the program, first, download the scripts and the database and put them in the same folder. Then, execute the python script.
     
     'python principal_component_analysis.py'
 
