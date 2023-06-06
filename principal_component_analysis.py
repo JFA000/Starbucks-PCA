@@ -1,4 +1,6 @@
-import numpy as np, pandas as pd, matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 from matplotlib import cm, lines
 
 def perform_pca(X, num_components=2):
@@ -31,13 +33,20 @@ scatter = ax.scatter(projected_data[:, 1], projected_data[:, 0], projected_data[
 # Definir rótulos dos eixos
 ax.set(xlabel='Fat(g)', ylabel='Calories', zlabel='Carb.(g)', title='Análise de Componentes Principais')
 
+# Criar legendas
 legend_labels = [lines.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=10)
                  for color in colors]
 ax.legend(legend_labels, ['Fat(g)', 'Calories', 'Carb.(g)'], loc='upper left')
 
+# Ajustar escala dos eixos
 ax.auto_scale_xyz(projected_data[:, 1], projected_data[:, 0], projected_data[:, 2])
+
+# Definir ângulo de visualização
 ax.view_init(elev=30, azim=45)
+
+# Adicionar grade ao gráfico
 ax.grid(True, linestyle='--', linewidth=0.5, alpha=0.7)
 
+# Exibir gráfico
 plt.tight_layout()
 plt.show()
