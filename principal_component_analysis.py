@@ -9,17 +9,26 @@ def perform_pca(X, num_components=2):
     projected_data = X @ largest_eigenvectors
     return projected_data, largest_eigenvectors
 
+# Carregar dados
 data = pd.read_csv('starbucks_nutrition_facts.csv', encoding='utf-8', delimiter=',')
-X = data[['Calories', 'Fat(g)', 'Carb.(g)', 'Fiber(g)', 'Protein', 'Sodium']].values
-projected_data, principal_components = perform_pca(X, num_components=3)
+nutritional_data = data[['Calories', 'Fat(g)', 'Carb.(g)', 'Fiber(g)', 'Protein', 'Sodium']].values
 
-min_vals, max_vals = np.min(projected_data, axis=0), np.max(projected_data, axis=0)
+# Executar PCA
+projected_data, principal_components = perform_pca(nutritional_data, num_components=3)
+
+# Calcular valores mínimos e máximos
+min_vals = np.min(projected_data, axis=0)
+max_vals = np.max(projected_data, axis=0)
+
+# Criar mapa de cores
 cmap = cm.get_cmap('coolwarm')
 colors = cmap((projected_data - min_vals) / (max_vals - min_vals))[:, 0]
 
+# Plotar gráfico
 fig, ax = plt.subplots(figsize=(8, 6), subplot_kw={'projection': '3d'})
 scatter = ax.scatter(projected_data[:, 1], projected_data[:, 0], projected_data[:, 2], c=colors, alpha=0.5, s=50)
 
+# Definir rótulos dos eixos
 ax.set(xlabel='Fat(g)', ylabel='Calories', zlabel='Carb.(g)', title='Análise de Componentes Principais')
 
 legend_labels = [lines.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=10)
